@@ -1,4 +1,4 @@
-#define PIN_BOTON_A 2
+#define PIN_BOTON_B 3
 #define PIN_LED_1 4
 #define PIN_LED_2 5 //PWM
 #define PIN_LED_3 6 //PWM
@@ -13,7 +13,7 @@ void setup() {
 
   //Inicializo Pines
   Serial.println(F("Inicializando pines digitales..."));
-  pinMode(PIN_BOTON_A, INPUT_PULLUP);
+  pinMode(PIN_BOTON_B, INPUT_PULLUP);
   pinMode(PIN_LED_1, OUTPUT);
   pinMode(PIN_LED_2, OUTPUT);
   pinMode(PIN_LED_3, OUTPUT);
@@ -21,12 +21,12 @@ void setup() {
 }
 
 void loop() {
-  duracion = pulseIn(PIN_BOTON_A, LOW, 20000000);
+  duracion = pulseIn(PIN_BOTON_B, LOW, 20000000);
   Serial.println(duracion / 1000); //en milisegundos
   if (duracion == 0) {
     Serial.println("pulsacion no detectada en 20 segundos");
   }
-  else if (duracion > 2000000) {
+  else if (duracion > 1000000) {
     Serial.println("pulsacion larga");
     if (estado_luces == 0) {
       estado_luces = 1;
