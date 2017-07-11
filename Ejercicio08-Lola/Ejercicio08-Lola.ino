@@ -1,5 +1,3 @@
-//Ejercicio08-Enrique
-
 #define PIN_BOTON_A 2
 #define PIN_LED_1 4
 #define PIN_LED_2 5 //PWM
@@ -23,12 +21,12 @@ void setup() {
 }
 
 void loop() {
-  duracion = pulseIn(PIN_BOTON_A, LOW, 20000000);
+  duracion = pulseIn(PIN_BOTON_A, LOW, 10000000);
   Serial.println(duracion / 1000); //en milisegundos
   if (duracion == 0) {
-    Serial.println("pulsacion no detectada en 20 segundos");
+    Serial.println("pulsacion no detectada en 10 segundos");
   }
-  else if (duracion > 2000000) {
+  else if (duracion > 1000000) {
     Serial.println("pulsacion larga");
     if (estado_luces == 0) {
       estado_luces = 1;
